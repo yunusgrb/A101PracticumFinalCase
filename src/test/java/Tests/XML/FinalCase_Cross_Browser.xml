@@ -1,0 +1,19 @@
+<!DOCTYPE suite SYSTEM "http://testng.org/testng-1.0.dtd">
+<suite name="Suit 1">
+
+
+    <test name="Test1">
+        <parameter name="arananKelime" value="kız çocuk bisikleti"></parameter>
+        <parameter name="browser" value="chrome"></parameter>
+        <classes>
+            <class name="Tests.FinalCaseTest">
+                <methods>
+                    <include name="Test1"></include>
+                </methods>
+            </class>
+        </classes>
+
+
+    </test>
+
+</suite>
