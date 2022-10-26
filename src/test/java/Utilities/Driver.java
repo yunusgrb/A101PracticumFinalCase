@@ -1,35 +1,47 @@
 package Utilities;
 
+import com.aventstack.extentreports.ExtentReports;
+import com.aventstack.extentreports.reporter.ExtentSparkReporter;
+import com.aventstack.extentreports.reporter.configuration.ExtentSparkReporterConfig;
+import com.aventstack.extentreports.service.ExtentService;
 import io.github.bonigarcia.wdm.WebDriverManager;
+import org.junit.jupiter.api.extension.ExtendWith;
+
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.chrome.ChromeDriver;
-import org.openqa.selenium.chrome.ChromeDriverService;
 import org.openqa.selenium.chrome.ChromeOptions;
 import org.openqa.selenium.edge.EdgeDriver;
 import org.openqa.selenium.firefox.FirefoxDriver;
-import org.openqa.selenium.support.ui.WebDriverWait;
 import org.testng.annotations.AfterClass;
 import org.testng.annotations.BeforeClass;
 import org.testng.annotations.Parameters;
 
+import javax.crypto.KeyAgreement;
 import java.time.Duration;
+import java.util.Locale;
 import java.util.logging.Level;
 import java.util.logging.Logger;
+
+
 
 public class Driver {
 
 
-    public static WebDriver driver;
-
+public static WebDriver driver;
+public static String anaSayfaWinddowId="";
 
     @Parameters("browser")
     @BeforeClass
     public void BaslangicIslemleri(String browser) {
         System.out.println("Driver start ....");
-        Logger logger = Logger.getLogger("");
-        logger.setLevel(Level.SEVERE);
+
+        Locale.setDefault(new Locale("EN"));
+        System.setProperty("user.language", "EN");
+
+        Logger.getLogger("").setLevel(Level.SEVERE);
+        System.setProperty(org.slf4j.impl.SimpleLogger.DEFAULT_LOG_LEVEL_KEY, "Error");
 
 
         switch (browser){
@@ -67,6 +79,7 @@ public class Driver {
         driver.manage().timeouts().pageLoadTimeout(Duration.ofSeconds(15));
 
         driver.get("https://www.hepsiburada.com/");
+        anaSayfaWinddowId= driver.getWindowHandle();
 
 
     }
@@ -79,7 +92,13 @@ public class Driver {
         } catch (InterruptedException e) {
             throw new RuntimeException(e);
         }
-       // driver.quit();
+
+        ExtentService.getInstance().setSystemInfo("User Name", "Yunus Gurbuz");
+        ExtentService.getInstance().setSystemInfo("Application Name", "A101 Web");
+        ExtentService.getInstance().setSystemInfo("Operating System Info", System.getProperty("os.name").toString());
+        ExtentService.getInstance().setSystemInfo("Department", "QA");
+
+        //driver.quit();
     }
 
 }

@@ -6,6 +6,8 @@ import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
 import org.openqa.selenium.support.PageFactory;
 
+import java.util.List;
+
 public class FinalCasePage extends ReusableMethods {
 
     public FinalCasePage() {
@@ -20,13 +22,13 @@ public class FinalCasePage extends ReusableMethods {
     @FindBy(id = "login")
     public WebElement girisYapButton;
 
-    @FindBy(xpath = "//input[@name='username']")
+    @FindBy(xpath= "(//input[@placeholder='E-posta adresi veya telefon numarası'])[1]")
     public WebElement emailGiris;
 
     @FindBy(id = "btnLogin")
     public WebElement emailGirisYap;
 
-    @FindBy(xpath= "//input[contains(@class,'hb-AxiLy')]")
+    @FindBy(xpath= "(//input[@placeholder='Şifre'])[1]")
     public WebElement sifreYaz;
 
     @FindBy(id = "btnEmailSelect")
@@ -38,20 +40,14 @@ public class FinalCasePage extends ReusableMethods {
     @FindBy(css = "[class='desktopOldAutosuggestTheme-UyU36RyhCTcuRs_sXL9b']")
     public WebElement searchInput;
 
-    @FindBy(id = "i1")
-    public WebElement urunSec;
+    @FindBy(css = "[class='productListContent-zAP0Y5msy8OHn5z7T_K_']")
+    public List<WebElement> urunList;
 
     @FindBy(xpath = "(//a[contains(@class,' hbus')])[2]")
     public WebElement saticiAdi1;
 
-    @FindBy(xpath = "//span[@class='price merchant price-new-old']/span")
-    public WebElement urun1Fiyati;
-
-    @FindBy(xpath = "(//a[@class='merchantStore small'])[1]")
-    public WebElement saticiAdi2;
-
-    @FindBy(xpath = "(//span[@class='price-text'])[1]")
-    public WebElement urun2fiyati;
+    @FindBy(id = "offering-price")
+    public WebElement urunFiyati;
 
     @FindBy(css = "[class='button big with-icon']")
     public WebElement sepeteEkle;
@@ -59,8 +55,6 @@ public class FinalCasePage extends ReusableMethods {
     @FindBy(css = "[class='checkoutui-Modal-2iZXl']")
     public WebElement xKapat;
 
-    @FindBy(xpath = "(//button[@class='add-to-basket button small'])[1]")
-    public WebElement sepeteEkle2;
 
     @FindBy(xpath = "//button[text()='Sepete git']")
     public WebElement sepeteGit;

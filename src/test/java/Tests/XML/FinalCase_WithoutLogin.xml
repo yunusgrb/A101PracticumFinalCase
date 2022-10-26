@@ -5,13 +5,14 @@
         <listener class-name="com.aventstack.extentreports.testng.listener.ExtentITestListenerAdapter"/>
         <listener class-name="Tests.TestNGListener"/>
     </listeners>
-    <test name="Test1">
-        <parameter name="arananKelime" value="lego"></parameter>
-        <parameter name="browser" value="chrome"></parameter>
+
+    <test name="Test2">
+        <parameter name="arananKelime" value="çocuk bisikleti"></parameter>
+        <parameter name="browser" value="edge"></parameter>
         <classes>
             <class name="Tests.FinalCaseTest">
                 <methods>
-                    <include name="Test1"></include>
+                    <include name="Test2WithoutLogin"></include>
                 </methods>
             </class>
         </classes>
