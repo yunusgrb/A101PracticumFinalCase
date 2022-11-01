@@ -25,7 +25,6 @@ public class ReusableMethods {
             if (id.equals(anaSayfaWinddowId))
                 continue;
             Driver.driver.switchTo().window(id);
-            System.out.println("Title = " + Driver.driver.getTitle());
         }
 
     }

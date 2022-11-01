@@ -6,7 +6,7 @@
         <listener class-name="Tests.TestNGListener"/>
     </listeners>
     <test name="Test1">
-        <parameter name="arananKelime" value="lego"></parameter>
+        <parameter name="arananKelime" value="çocuk bisikleti"></parameter>
         <parameter name="browser" value="chrome"></parameter>
         <classes>
             <class name="Tests.FinalCaseTest">

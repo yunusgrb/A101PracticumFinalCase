@@ -75,7 +75,7 @@ public static String anaSayfaWinddowId="";
             optFF.addArguments("--acceptInsecureCerts");
             optFF.addArguments("--disable-blink-features=AutomationControlled");
 
-            driver = new FirefoxDriver();
+            driver = new FirefoxDriver(optFF);
             break;
 
         case "edge":
@@ -91,7 +91,7 @@ public static String anaSayfaWinddowId="";
             optEd.addArguments("--acceptInsecureCerts");
             optEd.addArguments("--disable-blink-features=AutomationControlled");
 
-            driver=new EdgeDriver();
+            driver=new EdgeDriver(optEd);
             break;
     }
 
@@ -119,7 +119,7 @@ public static String anaSayfaWinddowId="";
         ExtentService.getInstance().setSystemInfo("Operating System Info", System.getProperty("os.name").toString());
         ExtentService.getInstance().setSystemInfo("Department", "QA");
 
-        driver.quit();
+        //driver.quit();
     }
 
 }

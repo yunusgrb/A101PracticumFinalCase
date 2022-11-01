@@ -7,12 +7,12 @@
     </listeners>
 
     <test name="Test2">
-        <parameter name="arananKelime" value="çocuk bisikleti"></parameter>
-        <parameter name="browser" value="edge"></parameter>
+        <parameter name="arananKelime" value="puzzle"></parameter>
+        <parameter name="browser" value="chrome"></parameter>
         <classes>
             <class name="Tests.FinalCaseTest">
                 <methods>
-                    <include name="Test2WithoutLogin"></include>
+                    <include name="Test1WithoutLogin"></include>
                 </methods>
             </class>
         </classes>
