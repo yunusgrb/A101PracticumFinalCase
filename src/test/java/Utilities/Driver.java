@@ -13,7 +13,9 @@ import org.openqa.selenium.WebElement;
 import org.openqa.selenium.chrome.ChromeDriver;
 import org.openqa.selenium.chrome.ChromeOptions;
 import org.openqa.selenium.edge.EdgeDriver;
+import org.openqa.selenium.edge.EdgeOptions;
 import org.openqa.selenium.firefox.FirefoxDriver;
+import org.openqa.selenium.firefox.FirefoxOptions;
 import org.testng.annotations.AfterClass;
 import org.testng.annotations.BeforeClass;
 import org.testng.annotations.Parameters;
@@ -40,48 +42,67 @@ public static String anaSayfaWinddowId="";
         Locale.setDefault(new Locale("EN"));
         System.setProperty("user.language", "EN");
 
-        Logger.getLogger("").setLevel(Level.SEVERE);
         System.setProperty(org.slf4j.impl.SimpleLogger.DEFAULT_LOG_LEVEL_KEY, "Error");
 
 
         switch (browser){
         case "chrome":
-            ChromeOptions opt = new ChromeOptions();
-            opt.addArguments("--disable-extensions");
-            opt.addArguments("--profile-directory=Default");
-            opt.addArguments("--incognito");
-            opt.addArguments("--disable-plugins-discovery");
-            opt.addArguments("--start-maximized");
-            opt.addArguments("--ignore-certificate-errors");
-            opt.addArguments("--allow-insecure-localhost");
-            opt.addArguments("--acceptInsecureCerts");
-            opt.addArguments("--disable-blink-features=AutomationControlled");
+            ChromeOptions optCh = new ChromeOptions();
+            optCh.addArguments("--disable-extensions");
+            optCh.addArguments("--profile-directory=Default");
+            optCh.addArguments("--incognito");
+            optCh.addArguments("--disable-plugins-discovery");
+            optCh.addArguments("--start-maximized");
+            optCh.addArguments("--ignore-certificate-errors");
+            optCh.addArguments("--allow-insecure-localhost");
+            optCh.addArguments("--acceptInsecureCerts");
+            optCh.addArguments("--disable-blink-features=AutomationControlled");
 
             WebDriverManager.chromedriver().setup();
-            driver = new ChromeDriver(opt);
+            driver = new ChromeDriver(optCh);
             break;
 
         case "firefox":
             WebDriverManager.firefoxdriver().setup();
+            FirefoxOptions optFF=new FirefoxOptions();
+            optFF.addArguments("--disable-extensions");
+            optFF.addArguments("--profile-directory=Default");
+            optFF.addArguments("--incognito");
+            optFF.addArguments("--disable-plugins-discovery");
+            optFF.addArguments("--start-maximized");
+            optFF.addArguments("--ignore-certificate-errors");
+            optFF.addArguments("--allow-insecure-localhost");
+            optFF.addArguments("--acceptInsecureCerts");
+            optFF.addArguments("--disable-blink-features=AutomationControlled");
+
             driver = new FirefoxDriver();
             break;
 
         case "edge":
             WebDriverManager.edgedriver().setup();
+            EdgeOptions optEd = new EdgeOptions();
+            optEd.addArguments("--disable-extensions");
+            optEd.addArguments("--profile-directory=Default");
+            optEd.addArguments("--incognito");
+            optEd.addArguments("--disable-plugins-discovery");
+            optEd.addArguments("--start-maximized");
+            optEd.addArguments("--ignore-certificate-errors");
+            optEd.addArguments("--allow-insecure-localhost");
+            optEd.addArguments("--acceptInsecureCerts");
+            optEd.addArguments("--disable-blink-features=AutomationControlled");
+
             driver=new EdgeDriver();
             break;
     }
 
-
         driver.manage().window().maximize();
         driver.manage().deleteAllCookies();
 
-        driver.manage().timeouts().pageLoadTimeout(Duration.ofSeconds(15));
+        driver.manage().timeouts().pageLoadTimeout(Duration.ofSeconds(20));
 
         driver.get("https://www.hepsiburada.com/");
+
         anaSayfaWinddowId= driver.getWindowHandle();
-
-
     }
 
     @AfterClass
@@ -98,7 +119,7 @@ public static String anaSayfaWinddowId="";
         ExtentService.getInstance().setSystemInfo("Operating System Info", System.getProperty("os.name").toString());
         ExtentService.getInstance().setSystemInfo("Department", "QA");
 
-        //driver.quit();
+        driver.quit();
     }
 
 }

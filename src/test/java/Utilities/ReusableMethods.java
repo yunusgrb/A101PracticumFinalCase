@@ -38,8 +38,8 @@ public class ReusableMethods {
     public void clickFunction(WebElement element)
     {
        WebDriverWait wait=new WebDriverWait(Driver.driver, Duration.ofSeconds(30));
-        wait.until(ExpectedConditions.elementToBeClickable(element));
-        element.click();
+       wait.until(ExpectedConditions.elementToBeClickable(element));
+       element.click();
 
     }
     public void sendKeysFunctionWithEnter(WebElement element, String value)
