@@ -74,7 +74,7 @@ public class FinalCaseTest extends Driver  {
         ReusableMethods rm=new ReusableMethods();
         WebDriverWait wait=new WebDriverWait(Driver.driver, Duration.ofSeconds(30));
 
-        fc.cerezKabulEt.click();
+        rm.clickFunction(fc.cerezKabulEt);
         rm.sendKeysFunctionWithEnter(fc.searchInput,arananKelime);
         rm.clickFromList(fc.urunList,0);
         rm.getSwitchWindow();

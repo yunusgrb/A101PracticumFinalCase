@@ -8,7 +8,7 @@ import org.openqa.selenium.support.PageFactory;
 
 import java.util.List;
 
-public class FinalCasePage extends ReusableMethods {
+public class FinalCasePage {
 
     public FinalCasePage() {
         PageFactory.initElements(Driver.driver,this);

@@ -119,7 +119,7 @@ public static String anaSayfaWinddowId="";
         ExtentService.getInstance().setSystemInfo("Operating System Info", System.getProperty("os.name").toString());
         ExtentService.getInstance().setSystemInfo("Department", "QA");
 
-        //driver.quit();
+        driver.quit();
     }
 
 }
